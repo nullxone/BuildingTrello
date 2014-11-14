@@ -13,3 +13,19 @@
  *= require_tree .
  *= require_self
  */
+
+/* https://color.adobe.com/Neutral-Blue-color-theme-22361/ */
+
+$color-1: #193441;
+$color-2: #3E606F;
+$color-3: #91AA9D;
+$color-4: #D1DBBD;
+$color-5: #FCFFF5;
+
+body {
+  background: $color-1;
+}
+
+.navbar-brand {
+  font-size: 20px;
+}
