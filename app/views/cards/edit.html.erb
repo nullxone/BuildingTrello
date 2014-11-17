@@ -1,6 +1,8 @@
-<h1>Editing card</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Show', @card %> |
-<%= link_to 'Back', cards_path %>
+<%= render :partial => 'shared/board', :locals => {:cards => @cards} %>
+<div class='overlay'>
+  <div class='create card'>
+    <div class='card-title'>Edit Card</div>
+    <%= render :partial => 'form' %>
+    <%= link_to 'Back', @card, :class => 'button-1' %>
+  </div>
+</div>

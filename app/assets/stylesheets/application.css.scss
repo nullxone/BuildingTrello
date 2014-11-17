@@ -26,8 +26,16 @@ body {
   background: $color-1;
 }
 
+.on-right {
+  float: right;
+}
+
 .navbar-brand {
   font-size: 20px;
+}
+
+.board {
+  margin-top: 20px;
 }
 
 .list {
@@ -41,8 +49,10 @@ body {
   display: block;
   background: $color-5;
   margin-bottom: 10px;
-  padding: 10px;
+  padding: 10px 5px;
   border-radius: 5px;
+  border-left: 7px solid $color-5;
+  border-right: 7px solid $color-5;
   color: #000;
 
   &:last-child {
@@ -52,7 +62,7 @@ body {
   &:hover {
     color: #000;
     text-decoration: none;
-    background: $color-4;
+    border-left: 7px solid $color-4;
   }
 
   .card-title {
@@ -85,7 +95,11 @@ body {
   }
 }
 
-.button {
+form .button-1, .button-2 {
+  margin-top: 15px;
+}
+
+.button-1, .button-2 {
   display: inline-block;
   margin: 10px 0 0;
   background: $color-4;
@@ -94,11 +108,19 @@ body {
   border-radius: 3px;
   text-transform: uppercase;
   font-size: 12px;
-  float: right;
+  border: none;
 
   &:hover {
     text-decoration: none;
     background: $color-3;
     color: $color-5;
+  }
+}
+
+.button-2 {
+  background: $color-5;
+  &:hover {
+    background: $color-4;
+    color: $color-1;
   }
 }

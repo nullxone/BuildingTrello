@@ -1,5 +1,10 @@
-<h1>New card</h1>
+<%= render :partial => 'shared/board', :locals => {:cards => @cards} %>
 
-<%= render 'form' %>
+<div class='overlay'>
+  <div class='create card'>
+    <div class='card-title'>Create a Card</div>
+    <%= render :partial => 'form' %>
+    <%= link_to 'Cancel', root_url, :class => 'button-1' %>
+  </div>
+</div>
 
-<%= link_to 'Back', cards_path %>
