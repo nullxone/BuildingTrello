@@ -1,0 +1,8 @@
+<div class='list'>
+  <% cards.each do |card| %>
+    <%= link_to card, :class => 'card' do %>
+      <div class='card-title'><%= card.title %></div>
+      <div class='card-description'><%= truncate(card.description, :length => 100, :separator => ' ') %></div>
+    <% end %>
+  <% end %>
+</div>

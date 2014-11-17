@@ -1,3 +1,14 @@
+<%= render :partial => 'shared/board', :locals => {:cards => @cards} %>
+
+<div class='overlay'>
+  <div class='show card'>
+    <div class='card-title'><%= @card.title %></div>
+    <div class='card-description'><%= @card.description %></div>
+    <%= link_to 'Back', root_url, :class => 'button' %>
+  </div>
+</div>
+
+<!--
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -12,3 +23,4 @@
 
 <%= link_to 'Edit', edit_card_path(@card) %> |
 <%= link_to 'Back', cards_path %>
+-->
