@@ -1,5 +1,5 @@
 class CardsController < ApplicationController
-  before_action :set_card, only: [:show, :edit, :update, :destroy]
+  before_action :set_card, only: [:show, :edit, :update, :update_position, :destroy]
   before_action :setup_board, only: [:index, :show, :new, :edit]
 
   # GET /cards
@@ -24,7 +24,7 @@ class CardsController < ApplicationController
   # POST /cards
   # POST /cards.json
   def create
-    @card = Card.new(card_params)
+    @card = Card.create_card(card_params)
 
     respond_to do |format|
       if @card.save
@@ -51,10 +51,20 @@ class CardsController < ApplicationController
     end
   end
 
+  def update_position
+    @card.update_position(params[:updown])
+
+    respond_to do |format|
+      format.html { redirect_to cards_url, notice: 'Card was moved.' }
+      format.json { head :no_content }
+    end
+  end
+
   # DELETE /cards/1
   # DELETE /cards/1.json
   def destroy
-    @card.destroy
+    @card.delete_card
+
     respond_to do |format|
       format.html { redirect_to cards_url, notice: 'Card was successfully destroyed.' }
       format.json { head :no_content }
@@ -68,7 +78,7 @@ class CardsController < ApplicationController
     end
 
     def setup_board
-      @cards = Card.all
+      @cards = Card.order(:position).all
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

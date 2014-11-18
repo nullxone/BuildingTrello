@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
   root 'cards#index'
 
-  resources :cards
+  resources :cards do
+    member do
+      post :update_position
+    end
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

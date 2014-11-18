@@ -4,6 +4,8 @@
       <%= link_to card, :class => 'card' do %>
         <div class='card-title'><%= card.title %></div>
         <div class='card-description'><%= truncate(card.description, :length => 100, :separator => ' ') %></div>
+
+        <%= updown_buttons(card) %>
       <% end %>
     <% end %>
     <%= link_to 'Create', new_card_path, :class => 'button-2' %>

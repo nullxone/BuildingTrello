@@ -68,6 +68,15 @@ body {
   .card-title {
     font-size: 18px
   }
+
+  .button_to {
+    margin-top: 0;
+    display: inline-block;
+
+    .button-1 {
+      margin-top: 10px;
+    }
+  }
 }
 
 .overlay {
