@@ -1,13 +1,15 @@
 <div class='board'>
-  <div class='list'>
-    <% cards.each do |card| %>
-      <%= link_to card, :class => 'card' do %>
-        <div class='card-title'><%= card.title %></div>
-        <div class='card-description'><%= truncate(card.description, :length => 100, :separator => ' ') %></div>
+  <% lists.each do |list| %>
+    <div class='list'>
+      <% list.ordered_cards.each do |card| %>
+        <%= link_to card, :class => 'card' do %>
+          <div class='card-title'><%= card.title %></div>
+          <div class='card-description'><%= truncate(card.description, :length => 100, :separator => ' ') %></div>
 
-        <%= updown_buttons(card) %>
+          <%= updown_buttons(card) %>
+        <% end %>
       <% end %>
-    <% end %>
-    <%= link_to 'Create', new_card_path, :class => 'button-2' %>
-  </div>
+      <%= link_to 'Create', new_card_path(list: list.id), :class => 'button-2' %>
+    </div>
+  <% end %>
 </div>

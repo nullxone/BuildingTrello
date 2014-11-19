@@ -1,5 +1,7 @@
 class Card < ActiveRecord::Base
-  validates :title, :position, presence: true
+  belongs_to :list
+
+  validates :title, :position, :list_id, presence: true
 
   module UpDown
     UP = "UP"

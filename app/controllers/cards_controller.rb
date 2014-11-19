@@ -14,7 +14,7 @@ class CardsController < ApplicationController
 
   # GET /cards/new
   def new
-    @card = Card.new
+    @card = Card.new(list_id: params[:list])
   end
 
   # GET /cards/1/edit
@@ -78,11 +78,11 @@ class CardsController < ApplicationController
     end
 
     def setup_board
-      @cards = Card.order(:position).all
+      @lists = List.all
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def card_params
-      params.require(:card).permit(:title, :description)
+      params.require(:card).permit(:title, :description, :list_id)
     end
 end
