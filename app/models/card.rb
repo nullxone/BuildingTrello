@@ -8,13 +8,9 @@ class Card < ActiveRecord::Base
     DOWN = "DOWN"
   end
 
-  def self.max_position
-    Card.order(:position => :desc).first.position
-  end
-
   def self.create_card(attr)
     card = Card.new(attr)
-    card.position = Card.max_position + 1
+    card.position = card.list.max_position + 1
     return card
   end
 
